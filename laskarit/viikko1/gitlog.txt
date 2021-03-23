@@ -1,0 +1,113 @@
+commit 8339f19b40e672a9f7a61cc8e472780bb82ac906
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:30:47 2021 +0200
+
+    muutoksia
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ce717b52e5c0c21edb3056ac37753e98afaf1978
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:28:16 2021 +0200
+
+    lisäyksiä
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3190840a4ee7cb1bf0930e3aa767a6d7c6788e16
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:21:38 2021 +0200
+
+    muutoksia
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit e3c4fb78caa3232ec34b608de5a8cbcc6bb8af5e
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:18:24 2021 +0200
+
+    uudelleennimeys
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 62ce63144839eb97443a44e68fe432232c7c29b2
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:15:51 2021 +0200
+
+    poisto
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 282c9327e5dd0a72ae8bb9204d3dac1aa9f62906
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:10:52 2021 +0200
+
+    muutos
+
+ tiedosto.txt | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+commit 97851107fc4e9e21614da6c1901b93e8a717efb9
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:07:21 2021 +0200
+
+    muutos
+
+ tiedosto.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 8fc8a717a2b3d3fab2a9ac55d7fe64ed4b998016
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 16:00:11 2021 +0200
+
+    lisäys
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 16963fdd36077240d8eaea92ee4dd38e943bbbb1
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 15:59:24 2021 +0200
+
+    muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 39228f25f17c01af735a914613d87285ab57965b
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 15:58:19 2021 +0200
+
+    lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 26cae1ded7b5632f05a9fffddef73acdec4d6968
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 15:55:40 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 72700273bfc4cbe8933a6749e75b381500df2381
+Author: Mikael Salopelto <mikael.salopelto@helsinki.fi>
+Date:   Tue Mar 23 15:53:49 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
