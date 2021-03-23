@@ -1,8 +1,8 @@
-### ot-harjoitustyo
+# oOhjelmistotekniikka, harjoitustyö
 
 ## Tehtävät
 
-# Viikko 1
+### Viikko 1
 
 Tekstiä.
 *Kursiivia.*
