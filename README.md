@@ -6,7 +6,7 @@
 
 Tekstiä.
 *Kursiivia.*
-**_Lihavoitua kursiivia._**
+***Lihavoitua kursiivia.***
 
 [gitlog.txt](https://github.com/Chek94/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
