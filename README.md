@@ -1,8 +1,8 @@
-###ot-harjoitustyo###
+### ot-harjoitustyo
 
-##Tehtävät##
+## Tehtävät
 
-#Viikko 1#
+# Viikko 1
 
 Tekstiä.
 *Kursiivia.*
