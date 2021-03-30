@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Shakki pelin emulointi.
+Shakki-pelin emulointi.
 
 ## Käyttöliittymä
 
