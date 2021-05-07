@@ -7,20 +7,22 @@ package com.mycompany.chess;
 
 /**
  *
- * @author misalope
+ * @author MSalop
  */
-public class Main {
+public class Logic {
     
-    static Logic logic;
-    static UI ui;
+    private boolean turn;
+    private char rights;
+    private char drawCounter;
     
-    public static void main(String args[]) {
+    public Logic() {
         
-        logic = new Logic();
-        ui = new UI();
-        
-        
+        turn = false;
+        rights = 0b00001111;
+        drawCounter = 0;
         
     }
+    
+    
     
 }
