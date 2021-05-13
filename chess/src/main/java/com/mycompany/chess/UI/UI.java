@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.chess;
+package com.mycompany.chess.UI;
 
 import java.awt.Color;
 
@@ -15,8 +15,6 @@ public class UI {
     
     private Board board;
     private Controls controls;
-    
-    private boolean flip;
     
     public UI() {
         
@@ -45,4 +43,5 @@ public class UI {
         controls.labelForeground(Color.white);
                 
     }
+    
 }

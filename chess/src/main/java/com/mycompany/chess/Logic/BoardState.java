@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.chess;
+package com.mycompany.chess.Logic;
 
 /**
  *
  * @author MSalop
  */
-public class Logic {
+public class BoardState {
     
+    private char[][] board;
     private boolean turn;
-    private char rights;
+    private Rights rights;
     private char drawCounter;
     
-    public Logic() {
+    public BoardState() {
         
         turn = false;
-        rights = 0b00001111;
         drawCounter = 0;
         
     }

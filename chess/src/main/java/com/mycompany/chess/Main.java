@@ -5,18 +5,21 @@
  */
 package com.mycompany.chess;
 
+import com.mycompany.chess.UI.UI;
+import com.mycompany.chess.Logic.BoardState;
+
 /**
  *
  * @author misalope
  */
 public class Main {
     
-    static Logic logic;
+    static BoardState logic;
     static UI ui;
     
     public static void main(String args[]) {
         
-        logic = new Logic();
+        logic = new BoardState();
         ui = new UI();
         
         

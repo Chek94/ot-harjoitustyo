@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.chess;
+package com.mycompany.chess.UI;
 
 import java.awt.Color;
 
@@ -56,6 +56,7 @@ public class Controls extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frame1"); // NOI18N
         setResizable(false);
 
         jTextPane1.setEditable(false);
