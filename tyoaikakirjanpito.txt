@@ -4,3 +4,5 @@
 21.04.2021 14:50-15:40 Yleistä implementointia
 07.05.2021 11:25-17:20 Muutto AWT-elementeistä Swing-elementteihin, implementointia & piirrttävien elementtien valmistelua
 13.05.2021 13:00-17:00 Projektin rakenteen uusiminen & piirtoalueen implementointia
+14.05.2021 12:00-14:00 Logiikan implementointia
+15.05.2021 12:00-19:00 Yleistä implementointia

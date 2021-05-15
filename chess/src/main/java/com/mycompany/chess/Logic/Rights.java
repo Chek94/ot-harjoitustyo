@@ -11,4 +11,23 @@ package com.mycompany.chess.Logic;
  */
 public class Rights {
     
+    boolean[  ] rights;
+    byte enPassant;
+    
+    Rights(
+            boolean turn,
+            boolean whiteShort,
+            boolean whiteLong,
+            boolean blackShort,
+            boolean blackLong,
+            boolean enPassant,
+            byte enPassantFile
+    ) {
+        
+        boolean[  ] temp = { turn, whiteShort, whiteLong, blackShort, blackLong, enPassant };
+        rights = temp;
+        this.enPassant = enPassantFile;
+        
+    }
+    
 }

@@ -14,15 +14,13 @@ import com.mycompany.chess.Logic.BoardState;
  */
 public class Main {
     
-    static BoardState logic;
+    static BoardState state;
     static UI ui;
     
-    public static void main(String args[]) {
+    public static void main( String args[  ] ) {
         
-        logic = new BoardState();
-        ui = new UI();
-        
-        
+        state = new BoardState(  );
+        ui = new UI( state );
         
     }
     

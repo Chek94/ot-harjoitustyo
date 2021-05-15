@@ -5,6 +5,7 @@
  */
 package com.mycompany.chess.Logic;
 
+import java.util.LinkedList;
 /**
  *
  * @author MSalop
@@ -12,17 +13,41 @@ package com.mycompany.chess.Logic;
 public class BoardState {
     
     private char[][] board;
-    private boolean turn;
     private Rights rights;
     private char drawCounter;
     
-    public BoardState() {
+    private Square whiteKing;
+    private Square blackKing;
+    
+    private LinkedList whitePieces;
+    private LinkedList blackPieces;
+    
+    public BoardState(  ) {
         
-        turn = false;
+        //board
+        //rights = new Rights();
         drawCounter = 0;
+        
+        
         
     }
     
+    public void move( Move move ) {
+        
+        applyMove( move.getMove(  ), move.getContext(  ) );
+        
+    }
     
+    public void unmove( Move move ) {
+        
+        applyMove( (MoveLambda) Move.inverse( move.getMove(  ) ), move.getContext(  ) );
+        
+    }
+    
+    private void applyMove( MoveLambda move, long context ) {
+        
+        move.lambda( this, context );
+        
+    }
     
 }

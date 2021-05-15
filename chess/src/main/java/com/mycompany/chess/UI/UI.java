@@ -5,6 +5,7 @@
  */
 package com.mycompany.chess.UI;
 
+import com.mycompany.chess.Logic.BoardState;
 import java.awt.Color;
 
 /**
@@ -13,34 +14,48 @@ import java.awt.Color;
  */
 public class UI {
     
-    private Board board;
-    private Controls controls;
+    public static final Transform Identity;
+    public static final Transform Flip;
     
-    public UI() {
+    private BoardState state;
+    
+    private final Board board;
+    private final Controls controls;
+    
+    //
+    
+    static {
         
-        board = new Board();
-        controls = new Controls();
-        
-        java.awt.EventQueue.invokeLater(() -> {
-            new Board().setVisible(true);
-            new Controls().setVisible(true);
-        });
+        Identity = ( int i, int j ) -> { int[] point = { i, 7 - j }; return point; };
+        Flip = ( int i, int j ) -> { int[] point = { 7 - i,  j }; return point; };
         
     }
     
-    public void whiteToMove() {
+    public UI( BoardState state ) {
         
-        controls.labelText("white to move");
-        controls.labelBackground(Color.white);
-        controls.labelForeground(Color.black);
+        this.state = state;
+        
+        board = new Board( state, Flip );
+        controls = new Controls(  );
+        
+        board.setVisible( true );
+        controls.setVisible( true );
+        
+    }
+    
+    public void whiteToMove(  ) {
+        
+        controls.labelText( "white to move" );
+        controls.labelBackground( Color.white );
+        controls.labelForeground( Color.black );
                 
     }
     
-    public void blackToMove() {
+    public void blackToMove(  ) {
         
-        controls.labelText("black to move");
-        controls.labelBackground(Color.black);
-        controls.labelForeground(Color.white);
+        controls.labelText( "black to move" );
+        controls.labelBackground( Color.BLACK );
+        controls.labelForeground( Color.WHITE );
                 
     }
     

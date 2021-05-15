@@ -16,26 +16,26 @@ public class Controls extends javax.swing.JFrame {
     /**
      * Creates new form Controls
      */
-    public Controls() {
-        initComponents();
+    public Controls(  ) {
+        initComponents(  );
     }
     
-    public void labelText(String string) {
+    public void labelText( String string ) {
         
-        jTextPane1.setText(string);
-        
-    }
-    
-    public void labelForeground(Color colour) {
-        
-        jTextPane1.setForeground(colour);
+        jTextPane1.setText( string );
         
     }
     
-    
-    public void labelBackground(Color colour) {
+    public void labelForeground( Color colour ) {
         
-        jTextPane1.setBackground(colour);
+        jTextPane1.setForeground( colour );
+        
+    }
+    
+    
+    public void labelBackground( Color colour ) {
+        
+        jTextPane1.setBackground( colour );
         
     }
     
