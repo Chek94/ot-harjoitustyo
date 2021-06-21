@@ -6,3 +6,4 @@
 13.05.2021 13:00-17:00 Projektin rakenteen uusiminen & piirtoalueen implementointia
 14.05.2021 12:00-14:00 Logiikan implementointia
 15.05.2021 12:00-19:00 Yleistä implementointia
+16.05.2021 10:40-14:00 Piirtoalueen viimeistely

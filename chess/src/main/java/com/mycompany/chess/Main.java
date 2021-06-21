@@ -6,7 +6,7 @@
 package com.mycompany.chess;
 
 import com.mycompany.chess.UI.UI;
-import com.mycompany.chess.Logic.BoardState;
+import com.mycompany.chess.Logic.State;
 
 /**
  *
@@ -14,12 +14,12 @@ import com.mycompany.chess.Logic.BoardState;
  */
 public class Main {
     
-    static BoardState state;
+    static State state;
     static UI ui;
     
     public static void main( String args[  ] ) {
         
-        state = new BoardState(  );
+        state = new State(  );
         ui = new UI( state );
         
     }

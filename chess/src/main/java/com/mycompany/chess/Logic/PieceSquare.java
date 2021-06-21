@@ -11,8 +11,39 @@ package com.mycompany.chess.Logic;
  */
 public class PieceSquare {
     
-    public char piece;
+    private byte piece;
     
-    public Square square;
+    private Square square;
+    
+    public PieceSquare( byte piece, Square square ) {
+        
+        this.piece = piece;
+        this.square = square;
+        
+    }
+    
+    public byte getPiece(  ) {
+        
+        return piece;
+        
+    }
+    
+    public Square getSquare(  ) {
+        
+        return square;
+        
+    }
+    
+    public void setPiece( byte piece ) {
+        
+        this.piece = piece;
+        
+    }
+    
+    public void setSquare( Square square ) {
+        
+        this.square = square;
+        
+    }
     
 }

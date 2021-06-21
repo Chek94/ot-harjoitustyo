@@ -5,11 +5,14 @@
  */
 package com.mycompany.chess.UI;
 
-import com.mycompany.chess.Logic.BoardState;
+import com.mycompany.chess.Logic.State;
+import com.mycompany.chess.Logic.PieceSquare;
+import com.mycompany.chess.Logic.Square;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.util.Iterator;
 
 /**
  *
@@ -17,17 +20,21 @@ import java.awt.Toolkit;
  */
 public class Board extends javax.swing.JFrame {
     
-    private BoardState state;
+    private static final Color LIGHTCOLOR;
+    private static final Color DARKCOLOR;
+    private static final Color HIGHLIGHT;
+    
+    private State state;
     
     private Transform transform;
     
-    private static final Color LightColor;
-    private static final Color DarkColor;
+    private Square selectedSquare;
     
     static {
         
-        LightColor = new Color( 100, 200, 200 );
-        DarkColor = new Color( 50, 100, 100 );
+        LIGHTCOLOR = new Color( 100, 200, 200 );
+        DARKCOLOR = new Color( 50, 100, 100 );
+        HIGHLIGHT = new Color( 200, 100, 100 );
         
     }
     
@@ -36,7 +43,7 @@ public class Board extends javax.swing.JFrame {
      * @param state
      * @param transform
      */
-    public Board( BoardState state, Transform transform ) {
+    public Board( State state, Transform transform ) {
         
         this.state = state;
         
@@ -57,6 +64,8 @@ public class Board extends javax.swing.JFrame {
         
         paintBoard( graphics, board );
         
+        paintHighlights( graphics, board );
+        
         paintCoordinates( graphics, board );
         
         paintPieces( graphics, board );
@@ -69,8 +78,6 @@ public class Board extends javax.swing.JFrame {
         
     }
 
-
-    
     private int[  ] transform( int i, int j , Transform transform ) {
         
         return transform.lambda( i , j );
@@ -117,10 +124,10 @@ public class Board extends javax.swing.JFrame {
     
     private void paintBoard( Graphics graphics, int[  ] board ) {
         
-        graphics.setColor( LightColor );
+        graphics.setColor( LIGHTCOLOR );
         graphics.fillRect( board[ 0 ], board[ 1 ], board[ 2 ], board[ 2 ] );
         
-        graphics.setColor( DarkColor );
+        graphics.setColor( DARKCOLOR );
         
         int i = 0;
         int j = 0;
@@ -148,14 +155,14 @@ public class Board extends javax.swing.JFrame {
         
         int i, j;
         
-        if ( transform == UI.Identity ) i = 0;
+        if ( transform == UI.IDENTITY ) i = 0;
         else i = 7;
         j = 0;
         
         while ( j < 8 ) {
             
-            if ( ( i + j ) % 2 == 0 ) graphics.setColor( LightColor );
-            else graphics.setColor( DarkColor );
+            if ( ( i + j ) % 2 == 0 ) graphics.setColor( LIGHTCOLOR );
+            else graphics.setColor( DARKCOLOR );
             
             int[  ] point = square( board, i, j );
                         
@@ -166,13 +173,13 @@ public class Board extends javax.swing.JFrame {
         }
         
         i = 0;
-        if ( transform == UI.Identity ) j = 0;
+        if ( transform == UI.IDENTITY ) j = 0;
         else j = 7;
         
         while ( i < 8 ) {
             
-            if ( ( i + j ) % 2 == 0 ) graphics.setColor( LightColor );
-            else graphics.setColor( DarkColor );
+            if ( ( i + j ) % 2 == 0 ) graphics.setColor( LIGHTCOLOR );
+            else graphics.setColor( DARKCOLOR );
             
             int[  ] point = square( board, i, j );
             
@@ -186,13 +193,73 @@ public class Board extends javax.swing.JFrame {
     
     private void paintPieces( Graphics graphics, int[  ] board ) {
         
+        String[] map = { "", "K", "P", "N", "B", "R", "Q" };
+        
+        Square square;
+        int[] point;
+        Iterator iterator;
+        
         graphics.setFont( graphics.getFont(  ).deriveFont( ( float ) 72 * board[ 3 ] / Toolkit.getDefaultToolkit(  ).getScreenResolution(  ) ) );
         
         graphics.setColor(Color.WHITE);
         
-        int[  ] point  = square( board, 0, 0 );
+        square = state.getWhiteKing(  );
         
-        graphics.drawString( "P", point[ 0 ] + ( board[ 3 ] >> 2 ) , point[ 1 ] + board[ 3 ] - ( board[ 3 ] >> 2 ) );
+        point  = square( board, square.getX(  ), square.getY(  ) );
+        
+        graphics.drawString( "K", point[ 0 ] + ( board[ 3 ] >> 2 ) , point[ 1 ] + board[ 3 ] - ( board[ 3 ] >> 2 ) );
+        
+        iterator = state.getWhitePieces().iterator();
+        
+        while ( iterator.hasNext(  ) ) {
+            
+            PieceSquare element = ( PieceSquare ) iterator.next(  );
+            
+            square = element.getSquare(  );
+            
+            point  = square( board, square.getX(  ), square.getY(  ) );
+            
+            byte piece = ( byte ) ( element.getPiece() & 0b111 );
+            
+            graphics.drawString( map[ piece ], point[ 0 ] + ( board[ 3 ] >> 2 ) , point[ 1 ] + board[ 3 ] - ( board[ 3 ] >> 2 ) );
+            
+        }
+        
+        graphics.setColor(Color.BLACK);
+        
+        square = state.getBlackKing(  );
+        
+        point  = square( board, square.getX(  ), square.getY(  ) );
+        
+        graphics.drawString( "K", point[ 0 ] + ( board[ 3 ] >> 2 ) , point[ 1 ] + board[ 3 ] - ( board[ 3 ] >> 2 ) );
+        
+        iterator = state.getBlackPieces().iterator();
+        
+        while ( iterator.hasNext(  ) ) {
+            
+            PieceSquare element = ( PieceSquare ) iterator.next(  );
+            
+            square = element.getSquare(  );
+            
+            point  = square( board, square.getX(  ), square.getY(  ) );
+            
+            byte piece = ( byte ) ( element.getPiece() & 0b111 );
+            
+            graphics.drawString( map[ piece ], point[ 0 ] + ( board[ 3 ] >> 2 ) , point[ 1 ] + board[ 3 ] - ( board[ 3 ] >> 2 ) );
+            
+        }
+        
+    }
+    
+    private void paintHighlights( Graphics graphics, int[  ] board ) {
+        
+        if ( selectedSquare == null ) return;
+        
+        graphics.setColor(HIGHLIGHT);
+        
+        int[  ] point = square( board, selectedSquare.getX(  ), selectedSquare.getY(  ) );
+        
+        graphics.fillRect( point[ 0 ], point [ 1 ], board[ 3 ], board[ 3 ] );
         
     }
     
@@ -206,6 +273,11 @@ public class Board extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,6 +292,24 @@ public class Board extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        int x = evt.getX(  );
+        int y = evt.getY(  );
+        
+        int[  ] board = board(  );
+        
+        int[] point1 = { ( x - board[ 0 ] ) / board[ 3 ], ( y - board[ 1 ] ) / board[ 3 ] };
+        
+        int[] point2 = transform( point1[ 0 ], point1[ 1 ], transform );
+        
+        if ( selectedSquare == null ) selectedSquare = new Square( point2[ 0 ], point2[ 1 ] );
+        else selectedSquare = null;
+        
+        repaint();
+        
+    }//GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -5,7 +5,7 @@
  */
 package com.mycompany.chess.UI;
 
-import com.mycompany.chess.Logic.BoardState;
+import com.mycompany.chess.Logic.State;
 import java.awt.Color;
 
 /**
@@ -14,10 +14,10 @@ import java.awt.Color;
  */
 public class UI {
     
-    public static final Transform Identity;
-    public static final Transform Flip;
+    public static final Transform IDENTITY;
+    public static final Transform FLIP;
     
-    private BoardState state;
+    private State state;
     
     private final Board board;
     private final Controls controls;
@@ -26,16 +26,16 @@ public class UI {
     
     static {
         
-        Identity = ( int i, int j ) -> { int[] point = { i, 7 - j }; return point; };
-        Flip = ( int i, int j ) -> { int[] point = { 7 - i,  j }; return point; };
+        IDENTITY = ( int i, int j ) -> { int[] point = { i, 7 - j }; return point; };
+        FLIP = ( int i, int j ) -> { int[] point = { 7 - i,  j }; return point; };
         
     }
     
-    public UI( BoardState state ) {
+    public UI( State state ) {
         
         this.state = state;
         
-        board = new Board( state, Flip );
+        board = new Board( state, IDENTITY );
         controls = new Controls(  );
         
         board.setVisible( true );
